@@ -22,7 +22,7 @@ namespace DAL
             string sqlcmd = "Select * From PartInfo";
             //3.执行底层方法
             SqlDataReader reader = SqlHelper.ExecuteReader(
-                System.Configuration.ConfigurationManager.ConnectionStrings["SqlConnectionString1"].ToString(),
+                SqlHelper.ConnectionString,
                 CommandType.Text,
                 sqlcmd);
             while (reader.Read())
