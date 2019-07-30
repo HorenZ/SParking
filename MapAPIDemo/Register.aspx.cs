@@ -16,7 +16,10 @@ namespace MapAPIDemo
             if (!IsPostBack)
             {
                 (Master.FindControl("lbHeadText") as Label).Text = "注册";
-
+                this.ddlPro.DataSource = new ProvinceInfoBLL().GetAllProvinceInfo();
+                this.ddlPro.DataTextField = "Name";
+                this.ddlPro.DataValueField = "Simple";
+                this.ddlPro.DataBind();
             }
         }
 
@@ -27,11 +30,17 @@ namespace MapAPIDemo
                 Response.Write("<script type='text/javascript'>alert('请输入信息！')</script>");
                 return;
             }
-
+            //拼凑简写和车牌号
+            string carNum = this.ddlPro.SelectedValue + this.txbCarNumber.Text.ToString();
+            if (carNum.Length!=7)
+            {
+                AppHelper.Helper.jsPrint("车牌号格式错误！");
+                return;
+            }
             UserInfo user = new UserInfo();
             user.UserName = this.txbUnameRe.Text.Trim();
             user.Pwd = this.txbPwdRe.Text.Trim();
-            user.carNum = this.txbCarNumber.Text.Trim();
+            user.carNum = carNum;
             user.phone = this.txbPhoneRe.Text.Trim();
             string Msg = new UserInfoBLL().Register(user);
             if (Msg== "注册失败！"||Msg== "用户名重复！")

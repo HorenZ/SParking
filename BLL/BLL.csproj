@@ -44,6 +44,7 @@
     <Compile Include="HistoryBLL.cs" />
     <Compile Include="PartInfoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinceInfoBLL.cs" />
     <Compile Include="UserInfoBLL.cs" />
     <Compile Include="UserStateBLL.cs" />
   </ItemGroup>

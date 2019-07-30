@@ -45,6 +45,7 @@
     <Compile Include="HistoryDAL.cs" />
     <Compile Include="PartInfoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinceInfoDAL.cs" />
     <Compile Include="SQLHelper.cs" />
     <Compile Include="UserInfoDAL.cs" />
     <Compile Include="UserStateDAL.cs" />

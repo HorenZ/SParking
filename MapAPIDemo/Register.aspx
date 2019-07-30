@@ -29,7 +29,8 @@
             </div>
             <div class="div5">
                 <p>车牌号</p>
-                <asp:TextBox runat="server" CssClass="txb"  ID="txbCarNumber"></asp:TextBox>
+                <asp:DropDownList runat="server" ID="ddlPro"/>
+                <asp:TextBox runat="server" CssClass="txb"  ID="txbCarNumber" placeholder="无须再输入省份简称"></asp:TextBox>
             </div>
             <div class="div6">
                 <p><asp:Label runat="server" ID="lbMsg" ForeColor="Red"></asp:Label></p>
