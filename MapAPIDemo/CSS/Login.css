@@ -1,0 +1,32 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    background-color: #fefefe;
+    border: none;
+}
+
+p {
+    color: #969696;
+    font-size: 15px;
+    font-family: "微软雅黑";
+}
+
+.mainLogin {
+    width: 520px;
+    height: 588px;
+}
+
+.div1,.div2,.div3,.div4 {
+    width: 85%;
+    margin: 10px auto;
+}
+
+.txb {
+    border: #969696 solid 1px;
+    height: 23px;
+    width: 80%;
+    padding: 5px 15px;
+}

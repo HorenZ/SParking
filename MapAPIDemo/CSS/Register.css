@@ -1,0 +1,48 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+div {
+    background-color: #fefefe;
+    border: none;
+
+}
+
+p {
+    color: #969696;
+    font-size: 20px;
+    font-family: "微软雅黑";
+}
+
+.txb {
+    border: #969696 solid 1px;
+    height: 23px;
+    width: 320px;
+    padding: 5px 15px;
+}
+
+.mainRegister {
+    width: 520px;
+    height: 588px;
+}
+
+.div1, .div2, .div3, .div4,.div5 {
+    width: 350px;
+    margin: 15px auto;
+}
+
+.div6 {
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn {
+    font-family: "微软雅黑";
+    font-size: 25px;
+    height: 50px;
+    width: 100px;
+    border: #969696 solid 1px;
+}

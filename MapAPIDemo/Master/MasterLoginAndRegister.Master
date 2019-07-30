@@ -1,0 +1,39 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterLoginAndRegister.master.cs" Inherits="MapAPIDemo.Master.MasterLoginAndRegister" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        body {
+            background-color: #2e3e4e;
+        }
+        .main {
+            width: 520px;
+            margin-top: 170px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #fefefe;
+        }
+        .title {
+            background-color: #f4f4f4;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="title">
+             <asp:Label runat="server" ID="lbHeadText" Text="Test"></asp:Label>
+        </div>
+        <asp:ContentPlaceHolder runat="server" ID="divContent">
+
+        </asp:ContentPlaceHolder>
+    </div>
+</body>
+</html>

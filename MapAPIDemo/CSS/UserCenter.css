@@ -1,0 +1,198 @@
+﻿body, html {
+    width: 98%;
+    
+    overflow: hidden;
+    margin: 0;
+    font-family: "微软雅黑";
+    background-color: #F3F3F3;
+    
+}
+.header1 {
+    position: fixed;
+    background-color: #0075C7;
+    float: left;
+    width: 100%;
+    left: 0;
+    height: 70px;
+    padding: 20px;
+    margin-bottom: 100px;
+    border-style: none;
+    box-shadow: none;
+}
+
+.f1 {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 50px;
+    background-color: #eee;
+    z-index: 9999;
+    text-align: center;
+    border-style: none;
+    box-shadow: none;
+}
+
+div{
+    border-radius: 3px;
+    border: 2px solid #F3F3F3;
+    box-shadow:0 0 1px #000;
+}
+.father{
+    width: 92%;
+    margin: 130px auto;
+    border-style: none;
+    box-shadow: none;
+}
+
+
+.datetimeNow{
+    background-color: #ffffff;
+    width: 1400px;
+    height: 43px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-size: 13px;
+    line-height: 43px;
+    text-indent: 2em;
+    color: #999999;
+}
+
+.Msg{
+    width: 1400px;
+    margin-bottom: 30px;
+    height: 147px;
+}
+.MsgHead{				
+    background-color: #f5f5f5;
+    border-style: none;
+    box-shadow: none;
+    height: 49px;			
+    line-height: 49px;
+    text-indent: 1em;
+}
+.MsgText{
+    background-color: #ffffff;
+    border-style: none;
+    box-shadow: none;
+    height: 97px;
+    border-top: 2px solid #eeeeee;
+    text-indent: 1em;
+    line-height: 49px;
+}
+			
+.SAM{
+    width: 1400px;
+    height: 138px;
+    border-style: none;
+    box-shadow: none;
+    margin-bottom: 30px;
+}
+#divState{
+    margin-right: 30px;
+}
+
+.Updatepwd {
+    width: 1400px;
+    height: 130px;
+    background-color: #ffffff;
+}
+
+.Uphead {
+    background-color: #f5f5f5;
+    border-style: none;
+    box-shadow: none;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 1em;
+}
+
+.upcontent {
+    width: 1000px;
+    height: 40px;
+    background-color: #ffffff;
+    border-style: none;
+    box-shadow: none;
+    border-top: 0;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-indent: 1em;
+    text-align: center;
+}
+
+.twobox {
+    width: 681px;
+    height: 138px;
+    float: left;
+    background-color: #ffffff;
+}
+
+.WelComeText {
+    margin-left: 30px;
+    color: #717171;
+    font-size: 40px;
+    font-family: "微软雅黑";
+    border: none;
+}
+
+.Susername {
+    background-color: #f9f2f4;
+    color: #ca254e;
+    font-family: "楷体";
+    font-size: 35px;
+}
+
+.btnState1 {
+    background-color: #4cc0c1;
+    color: #eeeeee;
+    border: none;
+    margin-top: 5px;
+    margin-left: 30px;
+}
+.btnState2 {
+    background-color: #95c165;
+    color: #eeeeee;
+    border: none;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.btnManagerCar {
+    background-color: #ffc333;
+    color: #eeeeee;
+    border: none;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.SMoney1 {
+    float: right;
+    color: #717171;
+    font-size: 40px;
+    font-family: "微软雅黑";
+    margin-right: 30px;
+}
+
+.divstate {
+    width: 100%;
+    height: 100px;
+    margin-top: 30px;
+    border-width: 0;
+    border: none;
+}
+.addmoney {
+    margin-top: 5px;
+    margin-left: 30px;
+    background-color: #95c165;
+    color: #eeeeee;
+    border: none;
+}
+
+.divmoney {
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+    border-width: 0;
+    border-top: 0;
+    border: none;
+}
+
