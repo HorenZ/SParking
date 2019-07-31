@@ -66,7 +66,7 @@ namespace DAL
             //添加车辆信息
             if (userInfo.carNum!=null)
             {
-                if (AddCar(para[0],para[3]))
+                if (new CarInfoDAL().AddCar(para[0],para[3]))
                 {
                     return 2;
                 }
@@ -79,57 +79,58 @@ namespace DAL
 
         
 
-        /// <summary>
-        /// 添加车辆信息
-        /// </summary>
-        /// <param name="para1"></param>
-        /// <param name="para2"></param>
-        /// <returns>
-        /// true:成功
-        /// false:失败
-        /// </returns>
-        private bool AddCar(SqlParameter para1, SqlParameter para2)
-        {
-            SqlParameter[] para = new SqlParameter[2];
-            para[0] = para1;
-            para[1] = para2;
-            string sqlcmd = "Insert into CarInfo Values(@UserName,@CarNum)";
-            int e = SqlHelper.ExecuteNonQuery(SqlHelper.ConnectionString,
-                CommandType.Text,
-                sqlcmd,
-                para
-            );
-            if (e==0)
-            {
-                return false;
-            }
+        ///// <summary>
+        ///// 添加车辆信息
+        ///// </summary>
+        ///// <param name="para1"></param>
+        ///// <param name="para2"></param>
+        ///// <returns>
+        ///// true:成功
+        ///// false:失败
+        ///// </returns>
+        //private bool AddCar(SqlParameter para1, SqlParameter para2)
+        //{
+        //    SqlParameter[] para = new SqlParameter[2];
+        //    para[0] = para1;
+        //    para[1] = para2;
+        //    string sqlcmd = "Insert into CarInfo Values(@UserName,@CarNum)";
+        //    int e = SqlHelper.ExecuteNonQuery(SqlHelper.ConnectionString,
+        //        CommandType.Text,
+        //        sqlcmd,
+        //        para
+        //    );
+        //    if (e==0)
+        //    {
+        //        return false;
+        //    }
 
-            return true;
-        }
-        /// <summary>
-        /// 添加车辆信息
-        /// </summary>
-        /// <param name="name">用户名</param>
-        /// <param name="carnum">车牌号</param>
-        /// <returns></returns>
-        public bool AddCar(string name,string carnum)
-        {
-            SqlParameter[] para = new SqlParameter[2];
-            para[0] = new SqlParameter("@UserName",name);
-            para[1] = new SqlParameter("@CarNum",carnum);
-            string sqlcmd = "Insert into CarInfo Values(@UserName,@CarNum)";
-            int e = SqlHelper.ExecuteNonQuery(SqlHelper.ConnectionString,
-                CommandType.Text,
-                sqlcmd,
-                para
-            );
-            if (e == 0)
-            {
-                return false;
-            }
+        //    return true;
+        //}
+        ///// <summary>
+        ///// 添加车辆信息
+        ///// </summary>
+        ///// <param name="name">用户名</param>
+        ///// <param name="carnum">车牌号</param>
+        ///// <returns></returns>
+        //public bool AddCar(string name,string carnum)
+        //{
+        //    SqlParameter[] para = new SqlParameter[2];
+        //    para[0] = new SqlParameter("@UserName",name);
+        //    para[1] = new SqlParameter("@CarNum",carnum);
+        //    string sqlcmd = "Insert into CarInfo Values(@UserName,@CarNum)";
+        //    int e = SqlHelper.ExecuteNonQuery(SqlHelper.ConnectionString,
+        //        CommandType.Text,
+        //        sqlcmd,
+        //        para
+        //    );
+        //    if (e == 0)
+        //    {
+        //        return false;
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
+
         /// <summary>
         /// 登录
         /// </summary>

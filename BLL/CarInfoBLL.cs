@@ -26,8 +26,11 @@ namespace BLL
         /// <returns></returns>
         public bool AddCar(string name, string carnum)
         {
-            return new UserInfoDAL().AddCar(name, carnum);
+            return new CarInfoDAL().AddCar(name, carnum);
         }
+
+
+
 
         /// <summary>
         /// 删除车辆
