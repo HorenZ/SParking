@@ -42,5 +42,38 @@ namespace DAL
             //4.返回
             return list;
         }
+        /// <summary>
+        /// 通过停车场名字查询ID
+        /// </summary>
+        /// <param name="name">ParkName</param>
+        /// <returns>ID</returns>
+        public int GetIdByName(string name)
+        {
+            //准备参数
+            SqlParameter para=new SqlParameter("@Name",name);
+            string sqltxt = "Select ParkID From PartInfo Where Name=@Name";
+            //执行查询
+            return (int) SqlHelper.ExecuteScalar(
+                SqlHelper.ConnectionString,
+                CommandType.Text,
+                sqltxt,
+                para);
+        }
+        /// <summary>
+        /// 通过停车场ID查询名字
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public string GetNameById(int id)
+        {
+            SqlParameter para = new SqlParameter("@ParkID", id);
+            string sqltxt = "Select Name From PartInfo Where ParkID=@ParkID";
+            //执行查询
+            return SqlHelper.ExecuteScalar(
+                SqlHelper.ConnectionString,
+                CommandType.Text,
+                sqltxt,
+                para).ToString();
+        }
     }
 }

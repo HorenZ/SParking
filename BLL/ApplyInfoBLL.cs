@@ -7,27 +7,23 @@ using Model;
 
 namespace BLL
 {
-    public class HistoryBLL
+    public class ApplyInfoBLL
     {
         /// <summary>
-        /// 保存订单  返回true为失败
+        /// 返回true
         /// </summary>
-        /// <param name="his"></param>
+        /// <param name="apply"></param>
         /// <returns></returns>
-        public bool SaveHistory(History his)
+        public bool CreateOrder(ApplyInfo apply)
         {
-            int e = new HistoryDAL().SaveHistory(his);
+            int e = new ApplyInfoDAL().CreateOrder(apply);
+            //e!=1  保存失败
             if (e!=1)
             {
                 return true;
             }
 
             return false;
-        }
-
-        public int GetNewHID()
-        {
-            return new HistoryDAL().GetNewHID();
         }
     }
 }

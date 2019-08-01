@@ -118,17 +118,46 @@ namespace MapAPIDemo
 
         protected void btnGotoport_OnClick(object sender, EventArgs e)
         {
+            //1、网页端申请车位 数据写入数据库 生成订单、活跃订单、
+            //2、车库端3s / 次进行循环读取 读取完成再更改数据（分配的车位）
+            //3、网页端等待1.5s后再次访问数据库失败则进行循环 使用try catch 防止同时读取 获取分配到的车位号
+            string CarNum = this.rblCarNum.SelectedItem.Text;
+            string parkName = this.txbPortName.Value;
+            HistoryBLL HistoryBll = new HistoryBLL();
+            //生成活跃订单
+            ApplyInfo apply=new ApplyInfo();
+            apply.HID = HistoryBll.GetNewHID();
+            apply.CarNum = CarNum;
+            apply.ParkID = new PartInfoBLL().GetIdByName(parkName);
+            apply.ParkPosintion = null;
+            apply.State = false;
+            if (new ApplyInfoBLL().CreateOrder(apply))
+            {
+                //保存失败
+                AppHelper.Helper.jsPrint("出现了某些错误！(。・＿・。)ﾉI’m sorry~   错误代码:#APL01");
+                return;
+            }
+            //生成历史订单
             History his=new History();
             his.UserName = (Session["UserInfo"] as UserInfo).UserName;
-            his.StartTime=DateTime.Now;
+            his.BookTime = DateTime.Now;
+            his.StartTime= Convert.ToDateTime("2000-1-1");
             his.EndTime = Convert.ToDateTime("2000-1-1");
             his.AllTime = Convert.ToDateTime("2000-1-1");
-            his.CarNum = this.rblCarNum.SelectedItem.Text;
-            his.PortName = this.txbPortName.Value;
+            his.CarNum = CarNum;
+            his.PortName = parkName;
             his.PortPrice =Convert.ToDecimal(this.txbPrice.Value);
             his.State = Convert.ToBoolean(0);
             his.Cost = Convert.ToDecimal(0);
-            new HistoryBLL().SaveHistory(his);
+            if (HistoryBll.SaveHistory(his))
+            {
+                //保存失败
+                AppHelper.Helper.jsPrint("出现了某些错误！(。・＿・。)ﾉI’m sorry~   错误代码:#HIS01");
+                return;
+            }
+            
+            //未完成 跳转到其他页面单独进行导航
+
         }
 
         protected void gotoLogin_OnClick(object sender, EventArgs e)

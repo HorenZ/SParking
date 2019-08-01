@@ -61,6 +61,7 @@
   <ItemGroup>
     <Content Include="CSS\Register.css" />
     <Content Include="CSS\TC.css" />
+    <Content Include="Images\loading.gif" />
     <Content Include="JS\TC.js" />
     <Content Include="Login.aspx" />
     <Content Include="Master\MasterLoginAndRegister.Master" />

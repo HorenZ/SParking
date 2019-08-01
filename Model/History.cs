@@ -9,6 +9,7 @@ namespace Model
     {
         public int HID { get; set; }
         public string PortName { get; set; }
+        public DateTime BookTime { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public DateTime AllTime { get; set; }

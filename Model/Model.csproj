@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplyInfo.cs" />
     <Compile Include="CarInfo.cs" />
     <Compile Include="History.cs" />
     <Compile Include="PartInfo.cs" />
