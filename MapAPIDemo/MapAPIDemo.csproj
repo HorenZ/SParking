@@ -66,6 +66,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Master\MasterLoginAndRegister.Master" />
     <Content Include="Master\test.aspx" />
+    <Content Include="WarnningCode\warnningCode.txt" />
     <Content Include="弹窗.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
