@@ -130,7 +130,7 @@ namespace MapAPIDemo
             apply.CarNum = CarNum;
             apply.ParkID = new PartInfoBLL().GetIdByName(parkName);
             apply.ParkPosintion = null;
-            apply.State = false;
+            apply.State = 0;
             if (new ApplyInfoBLL().CreateOrder(apply))
             {
                 //保存失败
@@ -147,8 +147,9 @@ namespace MapAPIDemo
             his.CarNum = CarNum;
             his.PortName = parkName;
             his.PortPrice =Convert.ToDecimal(this.txbPrice.Value);
-            his.State = Convert.ToBoolean(0);
+            his.State = 0;
             his.Cost = Convert.ToDecimal(0);
+            his.ParkPosintion = "-1";
             if (HistoryBll.SaveHistory(his))
             {
                 //保存失败

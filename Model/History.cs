@@ -16,8 +16,12 @@ namespace Model
         public decimal Cost { get; set; }
         public decimal PortPrice { get; set; }
         public string UserName { get; set; }
-        //订单是否结束
-        public bool State { get; set; }
+        
+        /// <summary>
+        /// 订单是否结束  0:已订车库 但还未入库  1:已入库 未出库  2:完成停车 但未支付  3:订单完成
+        /// </summary>
+        public int State { get; set; }
         public string CarNum { get; set; }
+        public string ParkPosintion { get; set; }
     }
 }

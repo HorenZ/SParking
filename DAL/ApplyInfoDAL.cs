@@ -20,7 +20,7 @@ namespace DAL
         public int CreateOrder(ApplyInfo apply)
         {
             SqlParameter[] paras=new SqlParameter[5];
-            paras[0]=new SqlParameter("HID",apply.HID);
+            paras[0] = new SqlParameter("HID",apply.HID);
             paras[1] = new SqlParameter("CarNum", apply.CarNum);
             paras[2] = new SqlParameter("ParkID", apply.ParkID);
             paras[3] = new SqlParameter("ParkPosintion", apply.ParkPosintion);
@@ -32,6 +32,11 @@ namespace DAL
                 sqltxt,
                 paras);
             return e;
+        }
+
+        public int DeleteOrder(string hid)
+        {
+            
         }
     }
 }
