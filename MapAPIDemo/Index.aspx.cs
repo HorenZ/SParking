@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -123,13 +124,13 @@ namespace MapAPIDemo
             //3、网页端等待1.5s后再次访问数据库失败则进行循环 使用try catch 防止同时读取 获取分配到的车位号
             string CarNum = this.rblCarNum.SelectedItem.Text;
             string parkName = this.txbPortName.Value;
-            HistoryBLL HistoryBll = new HistoryBLL();
+            HistoryBLL historyBll = new HistoryBLL();
             //生成活跃订单
             ApplyInfo apply=new ApplyInfo();
-            apply.HID = HistoryBll.GetNewHID();
+            apply.HID = historyBll.GetNewHID()+1;
             apply.CarNum = CarNum;
             apply.ParkID = new PartInfoBLL().GetIdByName(parkName);
-            apply.ParkPosintion = null;
+            apply.ParkPosintion = "null";
             apply.State = 0;
             if (new ApplyInfoBLL().CreateOrder(apply))
             {
@@ -147,17 +148,34 @@ namespace MapAPIDemo
             his.CarNum = CarNum;
             his.PortName = parkName;
             his.PortPrice =Convert.ToDecimal(this.txbPrice.Value);
-            his.State = 0;
+            his.State = -1;
             his.Cost = Convert.ToDecimal(0);
             his.ParkPosintion = "-1";
-            if (HistoryBll.SaveHistory(his))
+            if (historyBll.SaveHistory(his))
             {
                 //保存失败
                 AppHelper.Helper.jsPrint("出现了某些错误！(。・＿・。)ﾉI’m sorry~   错误代码:#HIS01");
                 return;
             }
             
-            //未完成 跳转到其他页面单独进行导航
+            //等待结果
+            for (int i = 0; i < 5; i++)
+            {
+                Thread.Sleep(1500);
+                ApplyInfo apply_GetMsg = new ApplyInfoBLL().QueryOrderResult(historyBll.GetNewHID().ToString());
+                //车位分配好
+                if (apply_GetMsg.State == 1)
+                {
+                    //分配已完成 转移数据
+                    if (historyBll.UpdateParkPosition(apply_GetMsg.ParkPosintion,apply_GetMsg.HID))
+                    {
+                        AppHelper.Helper.jsPrint("出现了某些错误！(。・＿・。)ﾉI’m sorry~   错误代码:#HIS02");
+                        return;
+                    }
+                    //未完成 跳转到其他页面单独进行导航
+                    AppHelper.Helper.jsPrint("OK");
+                }
+            }
 
         }
 

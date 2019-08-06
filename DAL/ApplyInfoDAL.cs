@@ -34,9 +34,33 @@ namespace DAL
             return e;
         }
 
-        public int DeleteOrder(string hid)
+        /// <summary>
+        /// 查询订车库的结果是否成功
+        /// </summary>
+        /// <param name="hid"></param>
+        /// <returns></returns>
+        public ApplyInfo QueryOrderResult(string hid)
         {
-            
+            ApplyInfo apply=null;
+            string sqltxt = "Select * From ApplyInfo Where HID=@HID";
+            SqlParameter para=new SqlParameter("@HID",hid);
+            SqlDataReader reader = SqlHelper.ExecuteReader(
+                WebConfigurationManager.ConnectionStrings["SqlConnectionString1"].ToString(),
+                CommandType.Text,
+                sqltxt,
+                para);
+            while (reader.Read())
+            {
+                apply=new ApplyInfo();
+                apply.State = (int) reader["State"];
+                apply.CarNum = reader["CarNum"].ToString();
+                apply.HID = (int) reader["HID"];
+                apply.ParkID = (int) reader["ParkID"];
+                apply.ParkPosintion = reader["ParkPosintion"].ToString();
+                break;
+            }
+
+            return apply;
         }
     }
 }

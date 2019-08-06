@@ -24,7 +24,7 @@ namespace MapAPIDemo.AppHelper
                 return 0;
             }
 
-            if (username.Length < 4 ||pwd.Length<4)
+            if (username.Length < 2 ||pwd.Length<4)
             {
                 return 1;
             }

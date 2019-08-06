@@ -147,9 +147,9 @@ namespace DAL
             {
                 userInfo=new UserInfo();
                 userInfo.UserName = reader["UserName"].ToString();
-                userInfo.Pwd = reader["Password"].ToString();
-                userInfo.phone = reader["PhoneNumber"].ToString();
-                userInfo.root = Convert.ToInt32(reader["Root"]);
+                userInfo.Pwd = reader["Pwd"].ToString();
+                userInfo.phone = reader["phone"].ToString();
+                userInfo.root = Convert.ToInt32(reader["root"]);
                 break;
             }
 
@@ -167,7 +167,7 @@ namespace DAL
             SqlParameter[] paras=new SqlParameter[2];
             paras[0] = new SqlParameter("@UserName", name);
             paras[1] = new SqlParameter("@Password", newPwd);
-            string sqlcmd = "Update UserInfo set Password=@Password where UserName=@UserName";
+            string sqlcmd = "Update UserInfo set Pwd=@Password where UserName=@UserName";
             int a = SqlHelper.ExecuteNonQuery(
                 SqlHelper.ConnectionString,
                 CommandType.Text,

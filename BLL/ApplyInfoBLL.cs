@@ -18,12 +18,22 @@ namespace BLL
         {
             int e = new ApplyInfoDAL().CreateOrder(apply);
             //e!=1  保存失败
-            if (e!=1)
+            if (e != 1)
             {
                 return true;
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// 查询订车库的结果是否成功
+        /// </summary>
+        /// <param name="hid"></param>
+        /// <returns></returns>
+        public ApplyInfo QueryOrderResult(string hid)
+        {
+            return new ApplyInfoDAL().QueryOrderResult(hid);
         }
     }
 }
