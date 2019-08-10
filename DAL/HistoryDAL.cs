@@ -65,5 +65,22 @@ namespace DAL
                 sqltxt,
                 paras);
         }
+
+        /// <summary>
+        /// 判断用户是否存在未完成的订单
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public int IsNoPayOrder(string username)
+        {
+            string sqltxt = "Select COUNT(*) From History Where UserName=@UserName and (State=0 or State=1 or State=2)";
+            SqlParameter para=new SqlParameter("@UserName",username);
+            int i = (int) SqlHelper.ExecuteScalar(
+                SqlHelper.ConnectionString,
+                CommandType.Text,
+                sqltxt,
+                para);
+            return i;
+        }
     }
 }

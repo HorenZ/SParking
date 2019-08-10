@@ -49,6 +49,15 @@ namespace MapAPIDemo
                     this.btnGotoport.Visible = false;
                     this.gotoLogin.Visible = true;
                 }
+                //未完成订单处理
+                else
+                {
+                    if (new HistoryBLL().IsNoPayOrder((Session["UserInfo"] as UserInfo).UserName))
+                    {
+                        AppHelper.Helper.jsPrint("您还有未完成的订单，点击确定进入。");
+                        Response.Redirect("UserPages.aspx?mdoe=1");
+                    }
+                }
             }
 
         }
@@ -174,6 +183,7 @@ namespace MapAPIDemo
                     }
                     //未完成 跳转到其他页面单独进行导航
                     AppHelper.Helper.jsPrint("OK");
+
                 }
             }
 

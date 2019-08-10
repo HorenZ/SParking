@@ -29,6 +29,11 @@ namespace MapAPIDemo
                 listcarinfo = new CarInfoBLL().GetUserCarInfo(nowuser);
                 this.lbUsername.Text = nowuser.UserName;
                 InitRBL();
+                string mode = Request.QueryString["mode"];
+                if (mode=="1")
+                {
+                    
+                }
             }
         }
         /// <summary>
@@ -62,15 +67,15 @@ namespace MapAPIDemo
             }
         }
 
-        protected void Timer1_OnTick(object sender, EventArgs e)
-        {
-            DateTime dt = DateTime.Now;
-            //年月日
-            string t1 = dt.ToLongDateString().ToString();
-            //时间
-            string t2 = dt.ToLongTimeString().ToString();
-            this.lbTimeNow.Text = string.Format("今天是{0} 当前时间为：{1}", t1, t2);
-        }
+        //protected void Timer1_OnTick(object sender, EventArgs e)
+        //{
+        //    DateTime dt = DateTime.Now;
+        //    //年月日
+        //    string t1 = dt.ToLongDateString().ToString();
+        //    //时间
+        //    string t2 = dt.ToLongTimeString().ToString();
+        //    this.lbTimeNow.Text = string.Format("今天是{0} 当前时间为：{1}", t1, t2);
+        //}
 
         protected void btnUpdate_OnClick(object sender, EventArgs e)
         {

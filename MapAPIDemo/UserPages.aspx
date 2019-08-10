@@ -14,12 +14,13 @@
 <form id="form1" runat="server" method="post">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
     <div class="father">
-        <asp:UpdatePanel ID="up1" runat="server" RenderMode="Inline">
+        <%--<asp:UpdatePanel ID="up1" runat="server" RenderMode="Inline">
             <ContentTemplate>
                 <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_OnTick" Interval="1000"></asp:Timer>
                 <div class="datetimeNow"><asp:Label runat="server" ID="lbTimeNow"></asp:Label></div>
             </ContentTemplate>
-        </asp:UpdatePanel>
+        </asp:UpdatePanel>--%>
+        <div class="datetimeNow" id="timeClock"></div>
         <div class="Msg">
             <div class="MsgHead">最新公告</div>
             <div class="MsgText"><asp:Label runat="server" ID="lbMsg"></asp:Label></div>
@@ -63,7 +64,7 @@
         <div id="div1" class="content">
             <div id="close">
                 <span id="close-button">×</span>
-                <h2>弹窗头部</h2>
+                <h2>管理</h2>
             </div>
             <div id="div2">
                 <asp:UpdatePanel ID="up2" runat="server">
@@ -91,7 +92,7 @@
                 </asp:UpdatePanel>
                 
             </div>
-            <h3 id="foot">底部内容</h3>
+            <h3 id="foot"></h3>
         </div>
     </div>
     <!-- 弹窗内容结束 -->
@@ -117,4 +118,19 @@
             div.style.display = "none";
         }
     }
+
+    function time() {
+        var vWeek, vWeek_s, vDay;
+        vWeek = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+        var date = new Date();
+        year = date.getFullYear();
+        month = date.getMonth() + 1;
+        day = date.getDate();
+        hours = date.getHours();
+        minutes = date.getMinutes();
+        seconds = date.getSeconds();
+        vWeek_s = date.getDay();
+        document.getElementById("timeClock").innerHTML = "今天是" + year + "年" + month + "月" + day + "日" + "当前时间为" + hours + ":" + minutes + ":" + seconds;
+    };
+    setInterval("time()", 1000);
 </script>

@@ -50,5 +50,21 @@ namespace BLL
 
             return false;
         }
+
+        /// <summary>
+        /// 判断用户存在未完成的订单
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public bool IsNoPayOrder(string username)
+        {
+            int i = new HistoryDAL().IsNoPayOrder(username);
+            if (i!=0)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
